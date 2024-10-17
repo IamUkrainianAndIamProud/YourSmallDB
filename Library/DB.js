@@ -38,7 +38,7 @@ DB.prototype.getItemFromRoot = function(key) {
     return this[key];
 }
 DB.prototype.getKeyPoint = function(keyPointName) {
-    return this.keyPoints;
+    return this[keyPointName];
 }
 DB.prototype.getItem = function(keyPoint, key) {
     return this[keyPoint][key];

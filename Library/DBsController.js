@@ -12,19 +12,33 @@ DBsController.prototype.addDB = function(db) {
 DBsController.prototype.addDBs = function() {
     for (let i = 0; i < arguments.length; ++i) this.DBs[i] = arguments[i];
 }
+//Removers
+DBsController.prototype.removeDB = function(db) {
+    delete this.DBs[db];
+}
+DBsController.prototype.removeDBs = function() {
+    for (let i = 0; i < arguments.length; ++i) delete arguments[i];
+}
 // Getters
 DBsController.prototype.getDBs = function() {
     return this.DBs;
 }
-DBsController.prototype.getDB = function(db, dbName="") {
-    if (name === "") {
-        return this.DBs[db].name;
-    } else {
-        for (let i = 0; i === this.DBs.length; i++) {
-            if (this.DBs[i].name === name) {
-                return this.DBs[i];
-            }
+DBsController.prototype.findDB = function(dbName) {
+    for (let i = 0; i < this.DBs.length; i++) {
+        if (dbName === this.DBs[i].name) {
+            return dbName
         }
+    }
+}
+DBsController.prototype.matchNamedDB = function(dbName, dbNames=[]) {
+    let result = [];
+    if (dbNames.length === 0) {
+        return this.findDB(dbName);
+    } else {
+        for (let i = 0; i < dbNames.length; i++) {
+            result.push(this.findDB(dbNames[i]));
+        }
+        return result;
     }
 }
 // Checkers and Comparers
@@ -38,4 +52,6 @@ DBsController.prototype.hasDB = function(name="", names=[], dbs=[]) {
         }
     }
 }
-//
+DBsController.prototype.compareDBs = function(db1, db2) {
+    return db1 === db2;
+}
