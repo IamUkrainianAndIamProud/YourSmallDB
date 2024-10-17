@@ -4,7 +4,7 @@ A small DataBase fully written in JS. It's realized in JS objects. It has a plen
 # Files explained:
 ## 1.DB:
 This class lets you create a small DataBase, it has default methods like removeItem(), clearRoot(), createKeyPoint() and so on.
-## 2.DBsCOntroller:
+## 2.DBsController:
 This class lets you manipulate lots of different DataBases at the same time! It its own default methods like addDBs(), compareDBs(), hasDB() and more.
 
 ### Anything else to make it work?
