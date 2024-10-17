@@ -33,6 +33,7 @@ DB.prototype.addItem = function(keyPoint, key, value) {
     this[keyPoint][key] = value;
     this.items[key] = value;
 }
+
 // Getters
 DB.prototype.getItemFromRoot = function(key) {
     return this[key];

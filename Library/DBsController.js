@@ -19,6 +19,7 @@ DBsController.prototype.removeDB = function(db) {
 DBsController.prototype.removeDBs = function() {
     for (let i = 0; i < arguments.length; ++i) delete arguments[i];
 }
+
 // Getters
 DBsController.prototype.getDBs = function() {
     return this.DBs;
@@ -30,6 +31,7 @@ DBsController.prototype.findDB = function(dbName) {
         }
     }
 }
+// Checkers and Comparers
 DBsController.prototype.matchNamedDB = function(dbName, dbNames=[]) {
     let result = [];
     if (dbNames.length === 0) {
@@ -41,7 +43,6 @@ DBsController.prototype.matchNamedDB = function(dbName, dbNames=[]) {
         return result;
     }
 }
-// Checkers and Comparers
 DBsController.prototype.hasDB = function(name="", names=[], dbs=[]) {
     let result = "";
     if (dbs.length === 0 && names.length === 0) {
