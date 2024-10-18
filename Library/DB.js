@@ -68,7 +68,7 @@ DB.prototype.hasItem = function(keyPoint, key) {
 }
 // Special Functions
 DB.prototype.isEmpty = function() {
-    return this.items === {} && this.keyPoints.length > 0;
+    return this.items === {} && this.keyPoints.length < 0;
 }
 DB.prototype.copy = function(name=this.name) {
     let that = this;
