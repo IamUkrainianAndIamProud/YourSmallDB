@@ -4,8 +4,8 @@ let DB = function(name) {
     this.items = {};
 }
 // ! INIT and LAST are the functions to override:
-DB.prototype._init_ = function() {}
-DB.prototype._last_ = function() {}
+DB.prototype.init = function() {}
+DB.prototype.last = function() {}
 
 // Name Users
 DB.prototype.setName = function (name) {
