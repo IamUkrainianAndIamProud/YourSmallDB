@@ -48,9 +48,9 @@ DB.prototype.removeItemFromRoot = function(key) {
     delete this[key];
     delete this.items[key];
 }
-DB.prototype.removeKeyPoint = function(keyPoint) {
-    delete this[keyPoint];
-    delete this.keyPoints[keyPoint];
+DB.prototype.removeKeyPoint = function(keyPointName) {
+    delete this[keyPointName];
+    delete this.keyPoints[keyPointName];
 }
 DB.prototype.removeItem = function(keyPoint, key) {
     delete this[keyPoint][key];
@@ -76,7 +76,7 @@ DB.prototype.copy = function(name=this.name) {
     return that;
 }
 // !Dangerous functions
-DB.prototype.clearRoot = function(clearAll) {
+DB.prototype.clearRoot = function(clearAll=false) {
     let theName = this.name;
 
     for (let i = 0; i < this.items; ++i) {
@@ -93,14 +93,15 @@ DB.prototype.clearRoot = function(clearAll) {
         return this;
     }
 }
-DB.prototype.clear = function(name) {
+DB.prototype.clear = function(keyPointName) {
     for (let i = 0; i < this.keyPoints; i++) {
-        this.removeKeyPoint(this.keyPoints[name]);
+        this.removeKeyPoint(keyPointName);
     }
+    return this;
 }
 
 DB.prototype.selfDestruct = function() {
-    this._last_();
+    this.last();
     delete this;
     return {};
 }
