@@ -1,12 +1,11 @@
 let DB = function(name) {
     this.name = name;
-    this.init();
-}
-// !INIT:
-DB.prototype.init = function () {
     this.keyPoints = [];
     this.items = {};
 }
+// ! INIT and LAST are the functions to override:
+DB.prototype._init_ = function() {}
+DB.prototype._last_ = function() {}
 
 // Name Users
 DB.prototype.setName = function (name) {
@@ -101,6 +100,7 @@ DB.prototype.clear = function(name) {
 }
 
 DB.prototype.selfDestruct = function() {
+    this._last_();
     delete this;
     return {};
 }
