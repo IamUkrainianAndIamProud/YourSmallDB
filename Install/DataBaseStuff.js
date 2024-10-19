@@ -137,7 +137,7 @@ DBsController.prototype.getDBs = function() {
 DBsController.prototype.findDB = function(dbName) {
     for (let i = 0; i < this.DBs.length; i++) {
         if (dbName === this.DBs[i].name) {
-            return dbName
+            return this.DBs[i].name;
         }
     }
 }
